@@ -1,0 +1,12 @@
+image:
+  repository: luafanti/spring-boot-debug-app
+  tag: 1.0.1
+
+replicaCount: 2
+
+logging:
+  level:
+    spring: "info"
+    service: "info"
+  json:
+    enabled: false

@@ -1,0 +1,30 @@
+repositories:
+  - name: grafana-labs
+    url: https://grafana.github.io/helm-charts
+  - name: luafanti
+    url: https://dl.cloudsmith.io/public/luafanti/app/helm/charts
+
+releases:
+  - name: loki-stack
+    namespace: logging
+    createNamespace: true
+    chart: grafana-labs/loki-stack
+    values:
+      - vars/loki-stack.yaml
+    disableValidationOnInstall: true
+
+  - name: grafana-dashboards
+    namespace: logging
+    chart: local-charts/grafana-dashboards
+    needs:
+      - logging/loki-stack
+
+  - name: demo
+    namespace: sandbox
+    createNamespace: true
+    chart: luafanti/spring-debug-app
+    needs:
+      - logging/loki-stack
+    values:
+      - vars/spring-boot-demo.yaml
+
