@@ -81,8 +81,8 @@
       {
         "current": {
           "selected": true,
-          "text": "",
-          "value": ""
+          "text": "sandbox",
+          "value": "sandbox"
         },
         "datasource": {
           "type": "loki",
