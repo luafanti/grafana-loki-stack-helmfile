@@ -9,4 +9,4 @@ logging:
     spring: "info"
     service: "info"
   json:
-    enabled: false
+    enabled: true
